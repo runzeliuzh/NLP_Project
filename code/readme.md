@@ -1,4 +1,4 @@
-This repository contains codes for training classification models and the User interface which allows users to input Chinese texts(news) and predict a label.  
+This repository contains codes for training Chinese news classification models and the User interface which allows users to input Chinese texts(news) and predict a label.  
 
 # 1.Training classification models
 
