@@ -26,25 +26,31 @@ Download the file to a folder and unzip it.
 Now you can find a 'cc.zh.300.bin' file in the folder. 
 
 ## Training
-** (1)Training LR, SVM and NB classifier With Fasttext's pre-trained word vectors**  
+**(1)Training LR, SVM and NB classifier With Fasttext's pre-trained word vectors**  
+The model will be saved as output.
+| code | saved model |
+|-----:|-----------|
+|LR_pretrained_segmented.py| LR_pretrained_segmented_model.sav|
+|svm_pretrained_segmented.py| svm_pretrained_segmented_model.sav    |
+|NB_pretrained_segmented.py| nb_pretrained_segmented_model.sav   |
 
-*LR_pretrained_segmented.py*   
-*svm_pretrained_segmented.py*    
-*NB_pretrained_segmented.py*   
 
-**(2)Train a word vector model using the Chinanews Dataset**
+**(2)Train a word vector model using the Chinanews Dataset**  
 Run *Chinese2vec.py*, this step will generate a model called **'Chinanews_word2vec.model'**.  
 
-**(3)Training LR, SVM and NB classifier uisng the **'Chinanews_word2vec.model'**    
-*LR_word2vec_segmented.py*  
-*svm_word2vec_segmented.py*  
-*NB_word2vec_segmented.py*  
+**(3)Training LR, SVM and NB classifier uisng the 'Chinanews_word2vec.model'**  
+| code | saved model |
+|-----:|-----------|
+|LR_word2vec_segmented.py| LR_word2vec_segmented_model.sav|
+|svm_word2vec_segmented.py| svm_word2vec_segmented_model.sav    |
+|NB_word2vec_segmented.py| nb_word2vec_segmented_model.sav   |
 
 
 # 2.UI for predicting a Chinese(news) text to a category.
-Before using the '**GUI.py**' code,
-you can either run the *LR_pretrained_segmented.py*, *svm_pretrained_segmented.py* and save your classification model,    
-Or you can download [our pre-trained classification model](https://drive.google.com/drive/folders/1X8cW0JZR-7vLWWlCPaIKpXjeHgLtDyJ9?usp=sharing).    
+Check out the video showing how the UI works [here](https://drive.google.com/file/d/14isrZSmOdutfKgSB-BmmdA2H7qmdCbyf/view?usp=sharing)!  
+Before using the '**GUI.py**' code,  
+you can either run the *LR_pretrained_segmented.py*, *svm_pretrained_segmented.py* and save your classification model,      
+Or you can go to [our pre-trained classification model](https://drive.google.com/drive/folders/1X8cW0JZR-7vLWWlCPaIKpXjeHgLtDyJ9?usp=sharing), download  'LR_pretrained_segmented_model.sav' and 'svm_pretrained_segmented_model.sav'.  
 The pre-trained classification models are trained on 56000 pieces of Chinese news, each category 8000 piece.
 
 
