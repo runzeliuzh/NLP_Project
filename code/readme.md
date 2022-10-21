@@ -28,7 +28,7 @@ Now you can find a 'cc.zh.300.bin' file in the folder.
 ## Training
 **(1)Training LR, SVM and NB classifier With Fasttext's pre-trained word vectors**  
 The model will be saved as output.
-| code | saved model |
+| code | expected output(saved model) |
 |-----:|-----------|
 |LR_pretrained_segmented.py| LR_pretrained_segmented_model.sav|
 |svm_pretrained_segmented.py| svm_pretrained_segmented_model.sav    |
@@ -39,7 +39,7 @@ The model will be saved as output.
 Run *Chinese2vec.py*, this step will generate a model called **'Chinanews_word2vec.model'**.  
 
 **(3)Training LR, SVM and NB classifier uisng the 'Chinanews_word2vec.model'**  
-| code | saved model |
+| code | expected output(saved model) |
 |-----:|-----------|
 |LR_word2vec_segmented.py| LR_word2vec_segmented_model.sav|
 |svm_word2vec_segmented.py| svm_word2vec_segmented_model.sav    |
