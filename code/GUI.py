@@ -11,76 +11,36 @@ from googletrans import Translator
 from gensim.models import Word2Vec
 window = Tk()  #create a window
 window.maxsize(900, 600) # define size
-window.title('A Chinese classification application')
-window.config(bg="skyblue")
-# ChineseInputLabel = Label(text="Please Input a Chinese sentence for classification")
+window.title('A Chinese classification application') #window title
+window.config(bg="skyblue") #background color
 
+#divide the window to left frame and right frame
 left_frame = Frame(window, width=200, height=400)
 left_frame.grid(row=0, column=0, padx=10, pady=5)
 right_frame = Frame(window, width=650, height=400)
 right_frame.grid(row=0, column=1, padx=10, pady=5)
 # left_frame.pack()
-
+# code for allowing users switch between two classifiers
 # Label(master=left_frame, text="""Choose a  classfier:""", justify = LEFT,padx = 20).pack()
 setting_bar = Frame(left_frame, width=180, height=185)
 setting_bar.grid(row=2, column=0, padx=5, pady=5)
 Label(setting_bar, text="""Choose a classfier:""",relief=RAISED).grid(row=0, column=0, padx=5, pady=3, ipadx=10)
 v = IntVar()
-# v = 1  # set default value =1
-# Radiobutton(
-# setting_bar,
-#             text="SVM",
-#             padx = 20,
-#             variable=v,
-#             value=1).pack(anchor=W)
+
 Radiobutton(setting_bar,
             text="SVM",  variable=v,
             value=1).grid(row=1, column=0, padx=5, pady=5)
 Radiobutton(setting_bar,
             text="LR",  variable=v,
             value=2).grid(row=2, column=0, padx=5, pady=5)
-# Radiobutton(setting_bar,
-#             text="NB",  variable=v,
-#             value=3).grid(row=3, column=0, padx=5, pady=5)
-v.set(1)
-# Radiobutton(setting_bar,
-#             text="LR",
-#             padx = 20,
-#             variable=v,
-#             value=2).pack(anchor=W)
-#
-# Label(setting_bar, text="""Choose an embedding:""",relief=RAISED).grid(row=4, column=0, padx=5, pady=3, ipadx=10)
-# v1= IntVar()
-# # v1 1 # set default value to v1
-# Radiobutton(setting_bar,
-#             text="Fasttext pre-trained word vectors",
-#             variable=v1,
-#             value=1).grid(row=5, column=0, padx=5, pady=5)
-# Radiobutton(setting_bar,text="Word vectors trained on Chinanews dataset",variable=v1,
-#             value=2).grid(row=6, column=0, padx=5, pady=5)
-# v1.set(1)
-# Label(left_frame, text="""Choose an embedding:""", justify = LEFT,padx = 20).pack()
-# # Label(left_frame, text="""Choose an embedding:""").grid(row=1, column=0, padx=5, pady=5)
-# v1= IntVar()
-# Radiobutton(left_frame,
-#             text="word2vec_average_embedding",
-#             padx = 20,
-#             variable=v1,
-#             value=1).pack(anchor=W)
-# Radiobutton(left_frame,
-#             text="sentence_embedding",
-#             padx = 20,
-#             variable=v1,
-#             value=2).pack(anchor=W)
 
+v.set(1)   # set default value =1
 
+#load classification models trained on the Chinanews dataset.
 svm_pretrained_model = pickle.load(open('svm_pretrained_segmented_model.sav', 'rb'))
 lr_pretrained_model = pickle.load(open('LR_pretrained_segmented_model.sav', 'rb'))
-# nb_pretrained_model = pickle.load(open('nb_pretrained_segmented_model.sav', 'rb'))
-# svm_word2vec_model = pickle.load(open('svm_word2vec_segmented_model.sav', 'rb'))
-# lr_word2vec_model = pickle.load(open('LR_word2vec_segmented_model.sav', 'rb'))
-# nb_word2vec_model = pickle.load(open('nb_word2vec_segmented_model.sav', 'rb'))
-# categories = ['mainland China politics', 'International news', 'Taiwan - Hong Kong- Macau politics', 'military news', 'society news']
+
+
 # #
 categories = ['mainland China politics', 'Taiwan - Hong Kong- Macau politics', 'International news','financial news','culture','entertainment','sports']
 
@@ -99,7 +59,6 @@ txtbox = scrolledtext.ScrolledText(group1, width=40, height=10)
 txtbox.grid(row=0, column=0, sticky=E+W+N+S)
 txtbox.pack()
 ##google translate API
-
 input_text =""
 pretrained_w2vmodel = fasttext.load_model('cc.zh.300.bin')
 
@@ -108,7 +67,7 @@ pretrained_w2vmodel = fasttext.load_model('cc.zh.300.bin')
 
 var_result = StringVar()
 var_result.set('')
-
+#submit the request to predict label
 def submit():
     # input_text = input_var.get()
     input_text = txtbox.get('1.0', tk.END)
@@ -145,6 +104,7 @@ def submit():
 # English_text = StringVar()
 # English_text.set('')
 English_text =''
+#using google translator api 
 def translate():
     # input_text = input_var.get()
     input_text =  txtbox.get('1.0', tk.END)
@@ -208,9 +168,5 @@ exit_button = Button(
 window.mainloop()
 
 
-# from googletrans import Translator
-# translator = Translator(service_urls=[
-#       'translate.google.com',])
-# trans=translator.translate('Hello World', src='en', dest='zh-cn')
 
 
