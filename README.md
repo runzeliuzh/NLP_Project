@@ -17,6 +17,7 @@ Then, *conda activate your_envname* (in the example, *conda activate nlptask*)
 
 ## Dataset
 Please go to [this dataset repository](https://github.com/zhangxiangxiao/glyph) and download the **Chinanews dataset**. 
+Chinanews dataset has 7 categories: 'mainland China politics', 'Taiwan - Hong Kong- Macau politics', 'International news','financial news','culture','entertainment','sports'.
 
 Both training dataset and testing dataset are required. Rename the training dataset file to 'Chinanews_train.csv',  
 and the test dataset file to 'Chinanews_test.csv'.  
